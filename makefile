@@ -28,7 +28,7 @@ INCLUDE_PATHS =
 # linker stuff
 LINKER = $(CXX)
 LINKER_PATHS =
-LINKER_FLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+LINKER_FLAGS =
 
 # rules to build the target
 all: build $(TARGET)
