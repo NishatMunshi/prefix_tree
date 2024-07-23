@@ -1,5 +1,7 @@
 #pragma once
-#include <stdint.h>
+
+#include <stddef.h>
+
 typedef struct stack_node_struct {
     char c;
     struct stack_node_struct *next;

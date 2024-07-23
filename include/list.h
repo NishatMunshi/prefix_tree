@@ -1,5 +1,7 @@
 #pragma once
-#include <stdint.h>
+
+#include <stddef.h>
+
 typedef struct prefix_tree_node_struct prefix_tree_node;
 typedef struct list_node_struct {
     prefix_tree_node *prefix_tree_node;
