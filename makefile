@@ -7,9 +7,9 @@ BLD_DIRS = $(OBJ_DIR) $(EXE_DIR)
 TMP_DIRS = $(OBJ_DIR)
 
 # file extentions
+HDR_EXT = h
 SRC_EXT = c
 OBJ_EXT = o
-HDR_EXT = h
 
 # files
 SRCS = $(wildcard $(SRC_DIR)/*.$(SRC_EXT))
@@ -20,15 +20,15 @@ HDRS = $(patsubst $(SRC_DIR)/%.$(SRC_EXT), $(HDR_DIR)/%.$(HDR_EXT), $(SRCS))
 TARGET = $(EXE_DIR)/main
 
 # compiler info
-CXX       = gcc
-CXX_STD   = c17
-CXX_FLAGS = -g -Wall -Wextra -std=$(CXX_STD)
+CXX           = gcc
+CXX_STD       = c17
+CXX_FLAGS     = -g -Wall -Wextra -Wpedantic -std=$(CXX_STD)
 INCLUDE_PATHS =
 
 # linker stuff
-LINKER = $(CXX)
-LINKER_PATHS =
-LINKER_FLAGS =
+LD       = $(CXX)
+LD_PATHS =
+LD_FLAGS =
 
 # rules to build the target
 all: build $(TARGET)
@@ -39,7 +39,7 @@ $(OBJ_DIR)/%.$(OBJ_EXT): $(SRC_DIR)/%.$(SRC_EXT) $(HDR_DIR)/%.$(HDR_EXT)
 
 # link
 $(TARGET): $(OBJS)
-	$(CXX) -o $(TARGET) $(OBJS) $(LINKER_PATHS) $(LINKER_FLAGS)
+	$(CXX) -o $(TARGET) $(OBJS) $(LD_PATHS) $(LD_FLAGS)
 
 # rule to make build directories
 build:
@@ -49,4 +49,4 @@ build:
 clean:
 	rm -rf $(TMP_DIRS)
 
-.PHONY: all build clean
+.PHONY: all build clean run
