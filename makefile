@@ -49,4 +49,4 @@ build:
 clean:
 	rm -rf $(TMP_DIRS)
 
-.PHONY: all build clean run
+.PHONY: all build clean
